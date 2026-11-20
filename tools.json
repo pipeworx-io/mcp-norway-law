@@ -1,0 +1,46 @@
+[
+  {
+    "name": "no_law_search",
+    "description": "Find Norwegian acts (lover) by title, short title, abbreviation or law number. Give a subject word (\"arbeidsmiljø\"), a short title or abbreviation (\"straffeloven\", \"mrl\"), or the act's number as Norwegians cite it (\"lov 21 mai 1999 nr 30\", or \"1999-05-21-30\"). Returns the act id, full title, short title, entry-into-force date and the date of the last change in force, for the consolidated current acts published by Lovdata (about 750 acts, in Norwegian). Searches titles only, not the text of the acts; use no_law_get to read one. Every answer carries data_as_of, answered_from and the NLOD licence attribution. Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Title words, short title, abbreviation or law number, e.g. \"arbeidsmiljøloven\", \"personopplysningsloven\", \"mrl\", \"lov 21 mai 1999 nr 30\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum acts to return, default 10, max 50."
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "no_law_get",
+    "description": "Read a Norwegian act, or one section of it, in the consolidated current text published by Lovdata. Give the act id from no_law_search (e.g. \"1999-05-21-30\" for the Human Rights Act, \"2005-05-20-28\" for the Penal Code) and optionally a section (\"section 275\", \"5-3\", or \"110\" for a constitutional article). Returns the text in Norwegian, where the section sits in the act, its amendment history (with entry-into-force dates), the act's entry-into-force date and last change in force, a proper citation, the data date and the NLOD licence attribution. Without a section it returns the act's contents list and the opening text, up to max_chars. Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Act id as returned by no_law_search, e.g. \"2005-05-20-28\". The forms \"LOV-2005-05-20-28\" and \"lov 20 mai 2005 nr 28\" are accepted."
+        },
+        "section": {
+          "type": "string",
+          "description": "Optional section as cited, e.g. \"section 275\", \"5-3\", \"section 14-9a\"; for the Constitution an article number such as \"110\". A subdivision (\"section 5-3 første ledd\") returns the whole section."
+        },
+        "max_chars": {
+          "type": "number",
+          "description": "Cap on returned text, default 20000, max 100000. The response says when text was cut and how long it was."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+]

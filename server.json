@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/norway-law",
+  "title": "Norway Law",
+  "description": "Norway law: the text of the consolidated current Norwegian acts (lover), with the in-force facts…",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/norway-law",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-norway-law",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/norway-law/mcp"
+    }
+  ]
+}

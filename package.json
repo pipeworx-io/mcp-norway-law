@@ -1,0 +1,33 @@
+{
+  "name": "@pipeworx/mcp-norway-law",
+  "version": "0.1.0",
+  "description": "Norway law: the text of the consolidated current Norwegian acts (lover), with the in-force facts the publication carries. Source: Lovdata, the consolidated acts, open data under the Norwegian Licence for Open Government Data (NLOD) 2.0, which permits copying and redistribution with attribution.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mcp-norway-law": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "norway-law"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-norway-law.git"
+  },
+  "mcpName": "io.github.pipeworx-io/norway-law",
+  "pipeworx": {
+    "mode": "gateway",
+    "slug": "norway-law",
+    "gatewaySlug": "norway-law",
+    "sourceHash": "v1-a68ae7fbc66ff9e45efa7baad6904e929b83c915d5e0661c9814d94bec33aa3f",
+    "sourceCommit": "916a8516c7346946b548c93285fd6a73237f0d24"
+  }
+}
